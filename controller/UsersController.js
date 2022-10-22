@@ -99,7 +99,7 @@ export const logout = async (req, res) => {
   const refreshToken = req.cookies.refreshToken;
   if (!refreshToken) return res.sendStatus(401);
 
-  const user = await Users.findOne({
+  const user = await Users.findAll({
     where: {
       refresh_token: refreshToken,
     },
